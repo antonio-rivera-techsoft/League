@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { ChampionAPIResponse } from '../models/championApiResponse';
+import { ChampionAPIResponse } from '../models/league/championApiResponse';
 import { map, Observable } from 'rxjs';
-import { Champion } from '../models/champion';
+import { Champion } from '../models/league/champion';
 
 const baseUrl:string = "https://ddragon.leagueoflegends.com/cdn/4.7.16/data/en_US/champion.json";
 

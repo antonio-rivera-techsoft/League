@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Champion } from '../../../../shared/models/champion';
 import { ChampionsService } from '../../../../shared/service/champions.service';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
@@ -64,7 +63,7 @@ export class ChampionListComponent implements OnInit {
       this.championsList = c
       console.log(this.championsList);
     });
-    
+
   }
 
   redirectToDetails(pokemonId: string) {
