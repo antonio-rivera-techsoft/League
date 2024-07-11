@@ -9,11 +9,11 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'npcs',
+                redirectTo: 'npcs-list',
                 pathMatch: 'full'
             },
             {
-                path: 'npcs',
+                path: 'npcs-list',
                 component: EldenRingNpcsListComponent
             }
         ]

@@ -17,8 +17,6 @@ export class EldenRingService {
 
   private http = inject(HttpClient);
 
-  constructor() { }
-
   public getAllNpcs(){
     return this.http.get<NpcApiResponse>(`${baseUrl}npcs?limit=${offset}`);
   }

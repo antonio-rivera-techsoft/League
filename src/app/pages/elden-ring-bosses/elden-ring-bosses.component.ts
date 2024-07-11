@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-elden-ring-bosses',
   standalone: false,
   template: `
-  <!-- <router-outlet></router-outlet> -->
+  <router-outlet></router-outlet>
   `
 })
 export class EldenRingBossesComponent {

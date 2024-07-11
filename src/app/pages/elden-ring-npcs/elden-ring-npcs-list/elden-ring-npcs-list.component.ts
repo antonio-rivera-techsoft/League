@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Npc } from '../../../../shared/models/elden ring/npcs/npc';
 import { EldenRingService } from '../../../../shared/service/elden-ring.service';
 import { Router } from '@angular/router';
@@ -9,54 +9,30 @@ import { map } from 'rxjs';
   standalone: false,
   template: `
     <div class="content">
-      <h2>Pokedex</h2>
-
+      <h2>NPCs</h2>
       <div class="spacer"></div>
-
       <div class="pokemon-gallery">
 
         @for(npc of npcsList  ; track npc.name){
-
-        <div
-          appHover
-          class="pokemon-card"
-        >
+        <div appHover class="pokemon-card">
         <!-- (click)="redirectToDetails(pokemon.detail.id)" -->
 
-          <div class="pokemon-image">
-            <img
-              src="{{ npc.image }}"
-              alt="pokemonIMG"
-            />
-          </div>
+          <div class="pokemon-image"><img src="{{ npc.image }}" alt="pokemonIMG"/> </div>
 
           <div class="pokemon-details">
-            <div class="pokemon-id">{{ npc.id }}</div>
-
-            <div class="pokemon-name">{{ npc.name }}</div>
-
-            <div class="pokemon-name">{{ npc.location }}</div>
-
-            <div class="pokemon-name">{{ npc.role }}</div>
-
-
-            <!-- <div *ngFor="let type of pokemon.detail.types">
-              <div class="pokemon-type1" [appPokemonType]="type.type.name">
-                {{ type.type.name }}
-              </div>
-            </div> -->
+            <div class="pokemon-name">Name: {{ npc.name }}</div>
+            <div class="pokemon-name">Role: {{ npc.role }}</div>
+            <div class="pokemon-name">Location: {{ npc.location }}</div>
           </div>
+          
         </div>
-
         }
-
-        <!-- </div> -->
       </div>
     </div>
   `,
   styleUrl: './elden-ring-npcs-list.component.scss'
 })
-export class EldenRingNpcsListComponent {
+export class EldenRingNpcsListComponent implements OnInit{
   npcsList: Npc[] = [];
 
   constructor(private pokeservice: EldenRingService, private router: Router) {}
@@ -71,6 +47,7 @@ export class EldenRingNpcsListComponent {
               .getNpcById(npc.id)
               .subscribe((n) => (npc = n.data[0]));
           });
+          console.log(response.data);
           return response.data;
         })
       )

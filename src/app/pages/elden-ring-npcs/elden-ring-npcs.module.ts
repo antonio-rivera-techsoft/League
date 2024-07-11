@@ -17,6 +17,6 @@ import { provideHttpClient } from '@angular/common/http';
     FormsModule
   ],
   bootstrap: [EldenRingNpcsComponent],
-  providers: [provideHttpClient()]
+  
 })
 export class EldenRingNpcsModule { }
